@@ -40,3 +40,12 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+jacocoTestReport {
+    dependsOn(tasks.test)
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect{
+            fileTree(dir: it, exclude: ["**/Part02Application.*"])
+        }))
+    }
+}
