@@ -2,23 +2,16 @@ plugins {
     id 'java'
     id 'jacoco'
     id 'java-test-fixtures'
-    id 'org.springframework.boot' version '3.3.2'
+    id 'org.springframework.boot' version '3.2.3'
     id 'io.spring.dependency-management' version '1.1.6'
+    id 'io.freefair.lombok' version '8.4'
 }
 
-group = 'com.tester'
+group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 
 java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
-    }
-}
-
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
+    sourceCompatibility = JavaVersion.VERSION_17
 }
 
 repositories {
@@ -28,24 +21,46 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     runtimeOnly 'com.h2database:h2'
-
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
     testFixturesImplementation 'org.springframework.boot:spring-boot-starter-test'
     testFixturesImplementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 }
 
-tasks.named('test') {
+test {
     useJUnitPlatform()
 }
 
 jacocoTestReport {
     dependsOn(tasks.test)
+
     afterEvaluate {
-        classDirectories.setFrom(files(classDirectories.files.collect{
-            fileTree(dir: it, exclude: ["**/Part02Application.*"])
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [
+                    "**/UnitTestApplication.*"
+            ])
         }))
     }
+}
+
+// for integration test
+sourceSets {
+    integrationTest {
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
+    }
+}
+
+configurations {
+    integrationTestImplementation.extendsFrom implementation
+    integrationTestRuntimeOnly.extendsFrom runtimeOnly
+}
+
+dependencies {
+    integrationTestImplementation 'org.springframework.boot:spring-boot-starter-test'
+    integrationTestRuntimeOnly 'com.h2database:h2'
 }
