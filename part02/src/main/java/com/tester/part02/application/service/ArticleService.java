@@ -11,6 +11,7 @@ import com.tester.part02.application.port.out.LoadBoardPort;
 import com.tester.part02.common.exception.AccessDeniedException;
 import com.tester.part02.common.exception.ResourceNotFoundException;
 import com.tester.part02.domain.Article;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
@@ -20,16 +21,11 @@ import java.util.List;
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class ArticleService implements GetArticleUseCase, CreateArticleUseCase, ModifyArticleUseCase, DeleteArticleUseCase {
     private final LoadArticlePort loadArticlePort;
     private final CommandArticlePort commandArticlePort;
     private final LoadBoardPort loadBoardPort;
-
-    public ArticleService(LoadArticlePort loadArticlePort, CommandArticlePort commandArticlePort, LoadBoardPort loadBoardPort) {
-        this.loadArticlePort = loadArticlePort;
-        this.commandArticlePort = commandArticlePort;
-        this.loadBoardPort = loadBoardPort;
-    }
 
     @Override
     @Transactional(readOnly = true)

@@ -6,7 +6,6 @@ import org.assertj.core.api.BDDAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.io.TempDir;
 
 import java.time.LocalDateTime;
 
@@ -29,7 +28,7 @@ public class Ch02Clip01JunitAssertJTest {
 			.subject("subject")
 			.content("content")
 			.username("user")
-			.createAt(LocalDateTime.now())
+			.createdAt(LocalDateTime.now())
 			.build();
 
 		// when
@@ -48,7 +47,7 @@ public class Ch02Clip01JunitAssertJTest {
 			.hasFieldOrPropertyWithValue("board.id", 5L) // 객체 안에 접근도 가능 article.getBoard().getId()를 대체
 			.hasFieldOrPropertyWithValue("subject", "update-subject")
 			.hasFieldOrPropertyWithValue("content", "update-content")
-			.hasFieldOrProperty("createAt") // 값이 존재하냐 정도로 확인
+			.hasFieldOrProperty("createdAt") // 값이 존재하냐 정도로 확인
 		;
 	}
 
@@ -62,7 +61,7 @@ public class Ch02Clip01JunitAssertJTest {
 			.subject("subject")
 			.content("content")
 			.username("user")
-			.createAt(LocalDateTime.now())
+			.createdAt(LocalDateTime.now())
 			.build();
 
 		// when
@@ -74,7 +73,7 @@ public class Ch02Clip01JunitAssertJTest {
 			.hasFieldOrPropertyWithValue("id", article.getId())
 			.hasFieldOrPropertyWithValue("board.id", article.getBoard().getId())
 			.hasFieldOrPropertyWithValue("subject", "update-subject")
-			.hasFieldOrPropertyWithValue("user", "update-content")
+			.hasFieldOrPropertyWithValue("content", "update-content")
 		;
 
 	}

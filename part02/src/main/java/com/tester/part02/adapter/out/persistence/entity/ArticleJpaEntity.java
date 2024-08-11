@@ -2,6 +2,7 @@ package com.tester.part02.adapter.out.persistence.entity;
 
 
 import com.tester.part02.domain.Article;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

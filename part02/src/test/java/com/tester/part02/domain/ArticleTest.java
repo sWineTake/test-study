@@ -4,8 +4,6 @@ import org.junit.jupiter.api.*;
 
 import java.time.LocalDateTime;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class ArticleTest {
 	@BeforeAll
 	static void initAll() {
@@ -38,7 +36,7 @@ class ArticleTest {
 			.subject("subject")
 			.content("content")
 			.username("user")
-			.createAt(LocalDateTime.now())
+			.createdAt(LocalDateTime.now())
 			.build();
 
 		// when
@@ -47,7 +45,7 @@ class ArticleTest {
 		Assertions.assertEquals("subject", article.getSubject());
 		Assertions.assertEquals("content", article.getContent());
 		Assertions.assertEquals("user", article.getUsername());
-		Assertions.assertNotNull(article.getCreateAt());
+		Assertions.assertNotNull(article.getCreatedAt());
 	}
 
 	@Test
