@@ -15,7 +15,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.assertj.core.api.BDDAssertions.thenThrownBy;
 
 @ExtendWith(MockitoExtension.class)
-public class ch02Clip03ExceptionTest {
+public class Ch02Clip03ExceptionTest {
 
 	private ArticleService sut;
 

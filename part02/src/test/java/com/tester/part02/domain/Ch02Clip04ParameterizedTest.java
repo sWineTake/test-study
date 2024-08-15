@@ -19,12 +19,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-import static java.lang.Long.sum;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
-public class ch02Clip04ParameterizedTest {
+public class Ch02Clip04ParameterizedTest {
 
     @InjectMocks
     private ArticleService sut;

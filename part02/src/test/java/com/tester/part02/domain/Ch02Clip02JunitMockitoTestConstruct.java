@@ -6,7 +6,6 @@ import com.tester.part02.application.port.out.LoadBoardPort;
 import com.tester.part02.application.service.ArticleService;
 import com.tester.part02.domain.factory.ArticleFixtures;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.BDDMockito;
 import org.mockito.Mockito;
