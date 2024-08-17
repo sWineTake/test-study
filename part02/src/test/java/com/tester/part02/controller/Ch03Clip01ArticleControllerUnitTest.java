@@ -1,4 +1,4 @@
-package com.tester.part02.service;
+package com.tester.part02.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -10,7 +10,6 @@ import com.tester.part02.application.port.in.GetArticleUseCase;
 import com.tester.part02.application.port.in.ModifyArticleUseCase;
 import com.tester.part02.common.api.GlobalControllerAdvice;
 import com.tester.part02.common.exception.ResourceNotFoundException;
-import com.tester.part02.domain.Article;
 import com.tester.part02.domain.factory.ArticleFixtures;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,13 +19,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MockMvcBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import java.util.Optional;
-
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.contains;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
