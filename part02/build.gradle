@@ -29,6 +29,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     testFixturesImplementation 'org.springframework.boot:spring-boot-starter-test'
     testFixturesImplementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // 테스트 DB를 위해 추가
+    testRuntimeOnly 'com.h2database:h2'
 }
 
 test {
