@@ -50,20 +50,19 @@ jacocoTestReport {
     }
 }
 
-// for integration test
+// for integration test - 통합 테스트를 위한 설정
 sourceSets {
     integrationTest {
         compileClasspath += sourceSets.main.output
         runtimeClasspath += sourceSets.main.output
     }
 }
-
 configurations {
     integrationTestImplementation.extendsFrom implementation
     integrationTestRuntimeOnly.extendsFrom runtimeOnly
 }
-
 dependencies {
     integrationTestImplementation 'org.springframework.boot:spring-boot-starter-test'
     integrationTestRuntimeOnly 'com.h2database:h2'
 }
+///////////////////////////////////////////////////////////////
