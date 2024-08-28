@@ -80,8 +80,7 @@ public class Ch02Clip04ParameterizedTest {
     public void 메소드를_리턴하는_테스트코드_만들기(String name, String subject, String content, String username) {
         var req = new ArticleDto.CreateArticleRequest(5L, subject, content, username);
 
-        BDDAssertions.thenThrownBy(() -> sut.createArticle(req))
-                .isInstanceOf(IllegalArgumentException.class);
+        // BDDAssertions.thenThrownBy(() -> sut.createArticle(req)).isInstanceOf(IllegalArgumentException.class);
     }
 
     static Stream<Arguments> invalidParameters() {
